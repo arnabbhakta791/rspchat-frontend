@@ -20,6 +20,7 @@ import UserItem from "../shared/UserItem";
 
 const Search = () => {
   const { isSearch } = useSelector((state) => state.misc);
+  const userId = useSelector((state) => state.auth.user?._id);
 
   const [searchUser] = useLazySearchUserQuery();
 
@@ -41,7 +42,7 @@ const Search = () => {
 
   useEffect(() => {
     const timeOutId = setTimeout(() => {
-      searchUser(search.value)
+      searchUser(search.value, userId)
         .then(({ data }) => setUsers(data.users))
         .catch((e) => console.log(e));
     }, 1000);
@@ -72,12 +73,14 @@ const Search = () => {
 
         <List>
           {users.map((i) => (
-            <UserItem
-              user={i}
-              key={i._id}
-              handler={addFriendHandler}
-              handlerIsLoading={isLoadingSendFriendRequest}
-            />
+            userId !== i._id && (
+              <UserItem
+                user={i}
+                key={i._id}
+                handler={addFriendHandler}
+                handlerIsLoading={isLoadingSendFriendRequest}
+              />
+            )
           ))}
         </List>
       </Stack>
