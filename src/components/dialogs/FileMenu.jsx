@@ -115,7 +115,7 @@ const FileMenu = ({ anchorE1, chatId }) => {
             />
           </MenuItem>
 
-          <MenuItem onClick={selectFile}>
+          {/* <MenuItem onClick={selectFile}>
             <Tooltip title="File">
               <UploadFileIcon />
             </Tooltip>
@@ -128,7 +128,7 @@ const FileMenu = ({ anchorE1, chatId }) => {
               onChange={(e) => fileChangeHandler(e, "Files")}
               ref={fileRef}
             />
-          </MenuItem>
+          </MenuItem> */}
         </MenuList>
       </div>
     </Menu>

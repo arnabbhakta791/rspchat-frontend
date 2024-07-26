@@ -1,5 +1,5 @@
 import { useFetchData } from "6pp";
-import { Avatar, Box, Stack } from "@mui/material";
+import { Avatar, Box, Stack, Typography } from "@mui/material";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import AdminLayout from "../../components/layout/AdminLayout";
@@ -8,6 +8,7 @@ import Table from "../../components/shared/Table";
 import { server } from "../../constants/config";
 import { useErrors } from "../../hooks/hook";
 import { fileFormat, transformImage } from "../../lib/features";
+import AttachmentIcon from '@mui/icons-material/Attachment';
 
 const columns = [
   {
@@ -31,16 +32,17 @@ const columns = [
 
             return (
               <Box>
-                <a
+                {/* <a
                   href={url}
                   download
                   target="_blank"
                   style={{
                     color: "black",
                   }}
-                >
-                  {RenderAttachment(file, url)}
-                </a>
+                > */}
+                  {/* {RenderAttachment(file, url)} */}
+                      <AttachmentIcon />
+                {/* </a> */}
               </Box>
             );
           })
@@ -53,6 +55,11 @@ const columns = [
     headerName: "Content",
     headerClassName: "table-header",
     width: 400,
+    renderCell: (params) => (
+      <Typography variant="body2" color="textSecondary">
+        {params.row.content ? "*********" : "No Content"}
+      </Typography>
+    ),
   },
   {
     field: "sender",

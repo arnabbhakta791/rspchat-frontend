@@ -148,18 +148,18 @@ const Groups = () => {
     removeMember("Removing Member...", { chatId, userId });
   };
 
-  useEffect(() => {
-    if (chatId) {
-      setGroupName(`Group Name ${chatId}`);
-      setGroupNameUpdatedValue(`Group Name ${chatId}`);
-    }
+  // useEffect(() => {
+  //   if (chatId) {
+  //     setGroupName(`Group Name ${chatId}`);
+  //     setGroupNameUpdatedValue(`Group Name ${chatId}`);
+  //   }
 
-    return () => {
-      setGroupName("");
-      setGroupNameUpdatedValue("");
-      setIsEdit(false);
-    };
-  }, [chatId]);
+  //   return () => {
+  //     setGroupName("");
+  //     setGroupNameUpdatedValue("");
+  //     setIsEdit(false);
+  //   };
+  // }, [chatId]);
 
   const IconBtns = (
     <>
