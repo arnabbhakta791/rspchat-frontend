@@ -1,5 +1,5 @@
 import { useFetchData } from "6pp";
-import { Avatar, Box, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Skeleton, Stack, Typography } from "@mui/material";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import AdminLayout from "../../components/layout/AdminLayout";
@@ -123,7 +123,7 @@ const MessageManagement = () => {
       );
     }
   }, [data]);
-
+  
   return (
     <AdminLayout>
       {loading ? (
